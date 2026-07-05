@@ -1,7 +1,7 @@
 @charset "utf-8";
 :root{
     /* Color */
-    --container-width:1360px;
+    --container-width:900px;
     --main-color:#F7A0B8;
     --text-color:#111111;
     --sub-text-color:#666666;
@@ -165,14 +165,18 @@ ol{
 }
 #banner{
     width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
     height: 52px;
-    background: var(--text-color);
+    background-color: var(--border-color);
     overflow: hidden;
     border-top: 3px solid var(--border-color);
     border-bottom: 3px solid var(--border-color);
 }
 #desktop{
     width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
     min-height: calc(100vh - 152px);
     position: relative;
     background: #F7E6D4;
@@ -390,10 +394,25 @@ ol{
     background: var(--orange);
 }
 #notice_window{
-    width: 500px;
-    top: 360px;
-    right: 90px;
-    z-index: 50;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    transform: translate(-50%, -50%) scale(.95) !important;
+    z-index: 9999 !important;
+}
+#notice_window.show{
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) !important;
+    z-index: 9999 !important;
+}
+#notice_overlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .65);
+    display: none;
+    z-index: 9998;
+    pointer-events: none;
 }
 #login_window{
     width: 420px;
@@ -408,15 +427,15 @@ ol{
     z-index: 35;
 }
 #preview_window{
-    width: 720px;
+    width: 600px;
     top: 70px;
-    left: 300px;
+    left: 220px;
     z-index: 10;
 }
 #profile_window{
-    width: 500px;
+    width: 480px;
     top: 70px;
-    right: 300px;
+    right: 220px;
     z-index: 10;
 }
 #profile_window .winddow_title{
@@ -426,21 +445,21 @@ ol{
     border: none;
 }
 #folder_window{
-    width: 520px;
+    width: 580px;
     top: 150px;
-    left: 260px;
+    left: 220px;
     z-index: 10;
 }
 #detail_window{
-    width: 560px;
+    width: 520px;
     top: 200px;
-    right: 700px;
+    right: 560px;
     z-index: 10;
 }
 #contact_window{
-    width: 380px;
+    width: 360px;
     top: 600px;
-    left: 250px;
+    left: 220px;
     z-index: 15;
 }
 #notice_window .window_header{
@@ -1030,6 +1049,8 @@ ol{
 }
 .footer_inner{
     height: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1114,4 +1135,38 @@ ol{
 }
 .desktop_icon:active{
     transform: scale(.95);
+}
+.window_header.dango{
+    background: var(--pink);
+}
+#dango_window{
+    width: 500px;
+    top: 760px;
+    right: 120px;
+    z-index: 15;
+}
+#dango_window .window_body{
+    padding: 14px;
+}
+.dango_img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin: 0 auto;
+    border: 3px solid var(--border-color);
+    border-radius: 10px;
+}
+.dango_text{
+    text-align: center;
+    margin-bottom: 14px;
+}
+.dango_hi{
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-color);
+}
+.dango_sub{
+    margin-top: 4px;
+    font-size: 13px;
+    color: #777;
 }
