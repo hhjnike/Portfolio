@@ -447,3 +447,40 @@ document.addEventListener("keydown", function(e){
         }
     }, 180);
 });
+
+const noticeOk = document.getElementById("notice_ok");
+const noticeWindow = document.getElementById("notice_window");
+const loginWindow = document.getElementById("login_window");
+const memoWindow = document.getElementById("memo_window");
+const noticeOverlay = document.getElementById("notice_overlay");
+
+noticeOverlay.style.display = "block";
+openWindow(noticeWindow);
+
+noticeOk.addEventListener("click", function(){
+    noticeWindow.classList.remove("show");
+    noticeOverlay.style.display = "none";
+
+    setTimeout(function(){
+        noticeWindow.style.display = "none";
+        openWindow(loginWindow);
+        openWindow(memoWindow);
+    }, 100);
+});
+const loginForm = document.getElementById("login_form");
+const loginId = document.getElementById("login_id");
+const loginPw = document.getElementById("login_pw");
+const dangoWindow = document.getElementById("dango_window");
+
+loginForm.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const idValue = loginId.value.trim().toUpperCase();
+    const pwValue = loginPw.value.trim().toUpperCase();
+
+    if(idValue === "당고" && pwValue === "0624"){
+        openWindow(dangoWindow);
+    }else{
+        alert("LOGIN FAILED! Hint: 나는 당고,비번은 내 생일이야😎");
+    }
+});
