@@ -26,7 +26,9 @@
     #contact_window,
     #notice_window,
     #login_window,
-    #memo_window{
+    #memo_window,
+    #dango_window
+    {
         width: calc(100vw - 24px) !important;
         left: 12px !important;
         right: auto !important;
@@ -76,5 +78,16 @@
         align-items: flex-end;
         color: var(--white);
         font-size: 11px;
+    }
+    #notice_window{
+    width: calc(100vw - 32px) !important;
+    left: 16px !important;
+    right: auto !important;
+    top: 160px !important;
+    transform: scale(.95) !important;
+    }
+
+    #notice_window.show{
+    transform: scale(1) !important;
     }
 }
