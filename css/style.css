@@ -260,7 +260,7 @@ ol{
         transform: translateX(-50%);
     }
 }
-/* .window{
+.window{
     position: absolute;
     background: var(--window-bg);
     border: 3px solid var(--border-color);
@@ -268,7 +268,7 @@ ol{
     overflow: hidden;
     box-shadow: 8px 8px 0 var(--border-color);
     display: none;
-} */
+}
 .window_header{
     height: 48px;
     position: relative;
