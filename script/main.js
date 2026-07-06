@@ -416,10 +416,16 @@ searchForm.addEventListener("submit", function(e){
         openWindow(document.getElementById("profile_window"));
     }else if(keyword.includes("contact") || keyword.includes("연락")){
         openWindow(document.getElementById("contact_window"));
-    }else if(keyword.includes("works") || keyword.includes("folder") || keyword.includes("작업")){
+    }else if(keyword.includes("works") || keyword.includes("folder") || keyword.includes("작업") || keyword.includes("폴더")){
         openWindow(document.getElementById("folder_window"));
     }else if(keyword.includes("preview") || keyword.includes("미리보기")){
         openWindow(document.getElementById("preview_window"));
+    }else if(keyword.includes("detail") || keyword.includes("상세") || keyword.includes("디테일")){
+        openWindow(document.getElementById("detail_window"));
+    }else if(keyword.includes("dango") || keyword.includes("당고")){
+        openWindow(document.getElementById("dango_window"));
+    }else{
+        alert("검색 결과가 없어요!");
     }
 });
 
@@ -483,4 +489,22 @@ loginForm.addEventListener("submit", function(e){
     }else{
         alert("LOGIN FAILED! Hint: 나는 당고,비번은 내 생일이야😎");
     }
+});
+
+document.querySelectorAll(".work_card").forEach(function(card){
+
+    card.addEventListener("click", function(e){
+
+        // 하트 눌렀으면 열지 않음
+        if(e.target.closest(".heart_btn")){
+            return;
+        }
+
+        const link = card.dataset.link;
+
+        if(link){
+            window.open(link, "_blank");
+        }
+    });
+
 });
